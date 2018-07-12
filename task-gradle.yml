@@ -1,0 +1,19 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: gradle
+    tag: '3.4.1-jdk8'
+
+inputs:
+- name: git-resource
+
+run:
+  user: root
+  path: sh
+  dir: git-resource
+  args:
+  - -exc
+  - |
+    gradle --stacktrace build
